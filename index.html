@@ -1,1 +1,472 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TBB ECOSYSTEM | Structure. Execute. Complete.</title>
+<meta name="description" content="Explore the TBB Ecosystem — a connected framework for structure, execution, intelligence and continuity.">
+<style>
+:root {
+  --bg:#0b0d10;
+  --panel:#13171c;
+  --panel2:#191e24;
+  --text:#f2f3f4;
+  --muted:#9ca5ad;
+  --line:#2a3036;
+  --accent:#c7a66a;
+  --accent2:#e0c68b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.6
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(11,13,16,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:16px 0
+}
+.brand{font-weight:800;letter-spacing:2px;font-size:17px}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.navlinks a{font-size:12px;color:#c4c9ce;transition:.2s}
+.navlinks a:hover{color:var(--accent2)}
+.hero{
+  min-height:590px;display:flex;align-items:center;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 78% 45%,rgba(96,115,125,.15),transparent 42%),
+    linear-gradient(110deg,#0b0d10 15%,#12171b 65%,#0b0d10)
+}
+.hero:after{
+  content:"";position:absolute;right:-140px;top:70px;width:560px;height:560px;
+  border:1px solid rgba(199,166,106,.12);border-radius:50%;
+  box-shadow:0 0 0 50px rgba(199,166,106,.025),0 0 0 100px rgba(199,166,106,.02)
+}
+.hero-content{position:relative;z-index:1;padding:85px 0;max-width:700px}
+.eyebrow{
+  color:var(--accent2);font-size:11px;letter-spacing:3px;
+  text-transform:uppercase;font-weight:700
+}
+h1{font-size:clamp(42px,7vw,78px);line-height:1.03;margin:22px 0;letter-spacing:-2px}
+h1 span{color:var(--accent2)}
+.hero p{max-width:570px;color:#b7c0c6;font-size:17px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-block;padding:13px 19px;border-radius:3px;
+  font-size:12px;font-weight:700;letter-spacing:.8px;
+  border:1px solid var(--accent);transition:.2s
+}
+.btn.primary{background:var(--accent);color:#111}
+.btn.secondary{color:var(--text);border-color:#454d54}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+section{padding:82px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.section-head{max-width:720px;margin-bottom:36px}
+.section-head h2{font-size:clamp(28px,4vw,42px);line-height:1.15;margin:10px 0 15px}
+.section-head p{color:var(--muted);margin:0}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.intro-copy h2{font-size:36px;line-height:1.2}
+.intro-copy p{color:var(--muted)}
+.discipline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.discipline{
+  background:var(--panel);border:1px solid var(--line);padding:23px 18px;min-height:150px
+}
+.discipline .num{font-size:11px;color:var(--accent);letter-spacing:2px}
+.discipline h3{margin:9px 0;font-size:17px}
+.discipline p{margin:0;color:var(--muted);font-size:13px}
+.architecture{display:flex;flex-direction:column;gap:18px}
+.arch-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:28px;
+  background:var(--panel);border:1px solid var(--line);overflow:hidden
+}
+.arch-row:nth-child(even) .arch-art{order:2}
+.arch-copy{padding:32px}
+.arch-copy h3{font-size:24px;margin:8px 0 12px}
+.arch-copy p{color:var(--muted);font-size:14px}
+.arch-copy a{display:inline-block;margin-top:10px;color:var(--accent2);font-size:12px;font-weight:bold}
+.arch-art{
+  min-height:235px;display:flex;align-items:center;justify-content:center;
+  padding:25px;background:
+  linear-gradient(145deg,#20262b,#111519);
+  border-left:1px solid var(--line)
+}
+.art-frame{width:90%;max-width:430px;border:1px solid #424b50;padding:16px;background:#0d1114}
+.art-label{font-size:9px;letter-spacing:2px;color:#aeb8bf}
+.art-lines{display:flex;gap:6px;margin-top:14px}
+.art-lines i{display:block;height:48px;flex:1;background:linear-gradient(180deg,#3c4449,#1c2227);border:1px solid #343d42}
+.art-lines i:nth-child(2){background:linear-gradient(180deg,#6a5b3f,#29251e)}
+.art-lines i:nth-child(4){background:linear-gradient(180deg,#334b43,#1c2823)}
+.art-track{height:5px;background:#30383e;margin-top:14px;position:relative}
+.art-track:after{content:"";display:block;width:36%;height:100%;background:var(--accent)}
+.cluster-art{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:7px;width:90%;max-width:420px
+}
+.cluster-art div{height:110px;border:1px solid #3c454b;padding:9px;display:flex;flex-direction:column;justify-content:space-between;background:#161b1f}
+.cluster-art span{font-size:9px;color:#aeb7bd}
+.cluster-art strong{font-size:19px;color:#c8d0d5}
+.cluster-art div:nth-child(2){background:#242a2f}
+.cluster-art div:nth-child(3){background:#31383d}
+.cluster-art div:nth-child(4){background:#222a2c}
+.cluster-art div:nth-child(5){background:#343b40}
+.system-art{width:90%;max-width:430px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.system-art div{padding:15px;border:1px solid #3d464d;background:#161b20}
+.system-art small{display:block;color:#9ca7ae;font-size:9px;letter-spacing:1px}
+.system-art b{display:block;margin-top:8px;color:#d2b579;font-size:18px}
+.position-art{width:90%;max-width:430px;height:180px;display:flex;align-items:flex-end;gap:9px;border-bottom:1px solid #495157;padding:15px}
+.position-art div{flex:1;background:linear-gradient(180deg,#b9a16b,#51442c);opacity:.8}
+.position-art div:nth-child(1){height:35%}
+.position-art div:nth-child(2){height:65%}
+.position-art div:nth-child(3){height:48%}
+.position-art div:nth-child(4){height:85%}
+.position-art div:nth-child(5){height:57%}
+.records-art{width:90%;max-width:430px}
+.records-art div{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #3a4248;color:#aab4bb;font-size:11px}
+.records-art div:first-child{color:#d7c18d}
+.operation{
+  background:#101418;border:1px solid #2c3439;padding:22px
+}
+.dash-head{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-bottom:1px solid #343c41;padding-bottom:15px}
+.dash-head b{font-size:13px;letter-spacing:1.4px}
+.dash-head span{color:#9caaaf;font-size:10px}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}
+.metric{background:#171d21;border:1px solid #30383d;padding:15px}
+.metric small{display:block;color:#9aa6ad;font-size:10px}
+.metric strong{display:block;margin-top:7px;font-size:20px;color:#c9ad72}
+.metric.green strong{color:#8ac49a}
+.metric.blue strong{color:#7ba8db}
+.dash-lower{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin-top:10px}
+.dash-box{background:#171d21;border:1px solid #30383d;padding:18px}
+.dash-box h4{margin:0 0 12px;font-size:12px;letter-spacing:1px}
+.dash-box p{color:#9da8af;font-size:12px;margin:0}
+.dash-bars{display:flex;align-items:flex-end;height:95px;gap:7px}
+.dash-bars i{flex:1;background:linear-gradient(180deg,#bba26a,#665532);height:45%}
+.dash-bars i:nth-child(2){height:62%}
+.dash-bars i:nth-child(3){height:35%}
+.dash-bars i:nth-child(4){height:88%}
+.dash-bars i:nth-child(5){height:56%}
+.book-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.book-cover{max-width:290px;margin:auto}
+.book-cover img{width:100%;height:auto;display:block;border:1px solid #353a3e}
+.book-copy h2{font-size:38px;line-height:1.15;margin:10px 0}
+.book-copy p{color:var(--muted)}
+.access-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.access-card{background:var(--panel);border:1px solid var(--line);padding:25px}
+.access-card h3{margin:8px 0 10px}
+.access-card p{color:var(--muted);font-size:13px;min-height:65px}
+.access-card a{color:var(--accent2);font-size:12px;font-weight:bold}
+.final{
+  text-align:center;padding:90px 0;
+  background:radial-gradient(ellipse at center,rgba(199,166,106,.08),transparent 60%)
+}
+.final h2{font-size:clamp(30px,5vw,52px);line-height:1.15;margin:12px 0}
+.final p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#89939a;font-size:11px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#c8b17b}
+@media(max-width:800px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .navlinks{gap:12px}
+ .hero{min-height:480px}
+ .intro-grid,.arch-row,.book-grid{grid-template-columns:1fr}
+ .arch-row:nth-child(even) .arch-art{order:0}
+ .discipline-grid{grid-template-columns:1fr 1fr}
+ .dash-grid{grid-template-columns:1fr 1fr}
+ .dash-lower{grid-template-columns:1fr}
+ .access-grid{grid-template-columns:1fr}
+ .arch-art{min-height:190px}
+ .book-cover{max-width:230px}
+}
+@media(max-width:480px){
+ .wrap{width:90%}
+ .navlinks{gap:10px}
+ .navlinks a{font-size:11px}
+ h1{letter-spacing:-1px}
+ section{padding:60px 0}
+ .discipline{padding:17px 14px}
+ .arch-copy{padding:24px}
+ .dash-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">TBB <span>ECOSYSTEM™</span></a>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="framework.html">Framework</a>
+      <a href="clusterology.html">Clusterology</a>
+      <a href="clusterology-book.html">Book One</a>
+      <a href="components.html">Components</a>
+      <a href="smps.html">SMPS</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="mission-control.html">Mission Control</a>
+      <a href="subscription.html">Membership</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-content">
+    <div class="eyebrow">The TBB Ecosystem</div>
+    <h1>STRUCTURE.<br><span>EXECUTE.</span><br>COMPLETE.</h1>
+    <p>A connected operational ecosystem built around structure, execution, intelligence and continuity.</p>
+    <div class="actions">
+      <a class="btn primary" href="framework.html">EXPLORE THE FRAMEWORK</a>
+      <a class="btn secondary" href="mission-control.html">ENTER THE ECOSYSTEM</a>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section>
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="intro-copy">
+        <div class="eyebrow">A connected environment</div>
+        <h2>One Ecosystem.<br>Connected Disciplines.</h2>
+        <p>The TBB Ecosystem brings distinct operational disciplines into one connected environment. Each element has a defined role. Together, they form a structure built for deliberate execution and continuity.</p>
+      </div>
+      <div class="discipline-grid">
+        <div class="discipline">
+          <div class="num">01</div>
+          <h3>Structure</h3>
+          <p>Frameworks, mathematical logic and defined architecture.</p>
+        </div>
+        <div class="discipline">
+          <div class="num">02</div>
+          <h3>Execution</h3>
+          <p>Operational deployment, positioning and process.</p>
+        </div>
+        <div class="discipline">
+          <div class="num">03</div>
+          <h3>Intelligence</h3>
+          <p>Observation, monitoring and information flow.</p>
+        </div>
+        <div class="discipline">
+          <div class="num">04</div>
+          <h3>Continuity</h3>
+          <p>Records, progression and operational history.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ecosystem Architecture</div>
+      <h2>Distinct Components.<br>Connected Operation.</h2>
+      <p>Explore the disciplines that form the TBB operational environment.</p>
+    </div>
+
+    <div class="architecture">
+
+      <div class="arch-row">
+        <div class="arch-copy">
+          <div class="eyebrow">01 / Foundation</div>
+          <h3>TBB Framework</h3>
+          <p>The structural foundation that defines the operating environment, its logic, discipline and execution architecture.</p>
+          <a href="framework.html">DISCOVER THE FRAMEWORK →</a>
+        </div>
+        <div class="arch-art">
+          <div class="art-frame">
+            <div class="art-label">FRAMEWORK STRUCTURE</div>
+            <div class="art-lines"><i></i><i></i><i></i><i></i></div>
+            <div class="art-track"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-row">
+        <div class="arch-copy">
+          <div class="eyebrow">02 / Mathematics</div>
+          <h3>TBB Clusterology</h3>
+          <p>A mathematical discipline examining cluster relationships, distribution, structure and behavior across the number universe.</p>
+          <a href="clusterology.html">DISCOVER CLUSTEROLOGY →</a>
+        </div>
+        <div class="arch-art">
+          <div class="cluster-art">
+            <div><span>CLUSTER 01</span><strong>1–9</strong></div>
+            <div><span>CLUSTER 02</span><strong>10–19</strong></div>
+            <div><span>CLUSTER 03</span><strong>20–29</strong></div>
+            <div><span>CLUSTER 04</span><strong>30–39</strong></div>
+            <div><span>CLUSTER 05</span><strong>40–49</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-row">
+        <div class="arch-copy">
+          <div class="eyebrow">03 / Operational Software</div>
+          <h3>Framework Operation Software</h3>
+          <p>A connected operating environment supporting deployment, detection, progression tracking, system monitoring and operational records.</p>
+          <a href="components.html">EXPLORE THE COMPONENTS →</a>
+        </div>
+        <div class="arch-art">
+          <div class="system-art">
+            <div><small>OPERATION STATUS</small><b>ACTIVE</b></div>
+            <div><small>EXECUTION</small><b>MONITORED</b></div>
+            <div><small>DETECTION</small><b>LIVE</b></div>
+            <div><small>RECORDS</small><b>CONNECTED</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-row">
+        <div class="arch-copy">
+          <div class="eyebrow">04 / Positioning</div>
+          <h3>Smart Money Positioning System</h3>
+          <p>Positioning discipline, capital exposure, progression and capacity are integrated into the operational process.</p>
+          <a href="smps.html">EXPLORE SMPS →</a>
+        </div>
+        <div class="arch-art">
+          <div class="position-art"><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
+
+      <div class="arch-row">
+        <div class="arch-copy">
+          <div class="eyebrow">05 / Intelligence & Records</div>
+          <h3>Mission Control & Records</h3>
+          <p>Operational monitoring, mission coordination, historical records and continuity across the ecosystem.</p>
+          <a href="mission-control.html">ENTER MISSION CONTROL →</a>
+        </div>
+        <div class="arch-art">
+          <div class="records-art">
+            <div><span>MISSION RECORD</span><span>ARCHIVED</span></div>
+            <div><span>EXECUTION HISTORY</span><span>RECORDED</span></div>
+            <div><span>OPERATIONAL STATUS</span><span>MONITORED</span></div>
+            <div><span>CONTINUITY</span><span>MAINTAINED</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONAL ENVIRONMENT -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Operational Environment</div>
+      <h2>Visibility Across<br>the Operation.</h2>
+      <p>The framework operation software brings critical operational indicators into a unified view.</p>
+    </div>
+
+    <div class="operation">
+      <div class="dash-head">
+        <b>TBB FRAMEWORK / OPERATIONAL OVERVIEW</b>
+        <span>ILLUSTRATIVE INTERFACE</span>
+      </div>
+      <div class="dash-grid">
+        <div class="metric"><small>EXECUTION STAGE</small><strong>TRACKED</strong></div>
+        <div class="metric"><small>CAPITAL POSITION</small><strong>VISIBLE</strong></div>
+        <div class="metric green"><small>DETECTION</small><strong>MONITORED</strong></div>
+        <div class="metric blue"><small>PROGRESSION</small><strong>RECORDED</strong></div>
+      </div>
+      <div class="dash-lower">
+        <div class="dash-box">
+          <h4>OPERATIONAL HISTORY</h4>
+          <p>Deployment records, execution history and progression continuity.</p>
+          <div class="dash-bars"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="dash-box">
+          <h4>POSITIONING & CAPACITY</h4>
+          <p>Capital exposure and remaining operational capacity within the defined structure.</p>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn secondary" href="dashboard.html">EXPLORE THE DASHBOARD</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK ONE -->
+<section>
+  <div class="wrap book-grid">
+    <div class="book-cover">
+      <img src="assets/file_0000000037608211a07a4498cf253968.png" alt="Clusterology Advanced Mathematics Book One cover">
+    </div>
+    <div class="book-copy">
+      <div class="eyebrow">The Mathematical Foundation</div>
+      <h2>CLUSTEROLOGY<br>ADVANCED MATHEMATICS</h2>
+      <p>Book One introduces the mathematical foundation of Clusterology — a discipline built around the study of clusters, their relationships, distribution and structure.</p>
+      <p>The work stands as part of the wider TBB Ecosystem.</p>
+      <div class="actions">
+        <a class="btn primary" href="clusterology-book.html">EXPLORE BOOK ONE</a>
+        <a class="btn secondary" href="clusterology.html">EXPLORE CLUSTEROLOGY</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Access the Ecosystem</div>
+      <h2>Enter Through<br>Your Point of Interest.</h2>
+      <p>Explore the framework, access membership or study the mathematical discipline.</p>
+    </div>
+    <div class="access-grid">
+      <div class="access-card">
+        <div class="eyebrow">Framework</div>
+        <h3>Explore the System</h3>
+        <p>Discover the structure, operational architecture and connected components.</p>
+        <a href="framework.html">EXPLORE →</a>
+      </div>
+      <div class="access-card">
+        <div class="eyebrow">Membership</div>
+        <h3>Access the Ecosystem</h3>
+        <p>Enter the TBB membership environment and discover available access.</p>
+        <a href="subscription.html">MEMBERSHIP ACCESS →</a>
+      </div>
+      <div class="access-card">
+        <div class="eyebrow">Book One</div>
+        <h3>Study Clusterology</h3>
+        <p>Explore the published mathematical work underpinning the discipline.</p>
+        <a href="clusterology-book.html">BOOK ONE →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="final">
+  <div class="wrap">
+    <div class="eyebrow">TBB Ecosystem</div>
+    <h2>Structure Is Deliberate.<br>Execution Is Defined.</h2>
+    <p>A connected system. A disciplined operation. A continuing framework.</p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn primary" href="mission-control.html">ENTER THE ECOSYSTEM</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>© TBB ECOSYSTEM™ — STRUCTURE • EXECUTE • COMPLETE</div>
+    <div>
+      <a href="contact.html">CONTACT</a> &nbsp;|&nbsp;
+      <a href="winning-orders.html">RECORDS</a> &nbsp;|&nbsp;
+      <a href="vault.html">VAULT</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
